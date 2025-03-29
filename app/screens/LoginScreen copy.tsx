@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite"
 import { ComponentType, FC, useEffect, useMemo, useRef, useState } from "react"
-import { TextInput, TextStyle, View, ViewStyle } from "react-native"
+import { TextInput, TextStyle, ViewStyle } from "react-native"
 import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../components"
 import { useStores } from "../models"
 import { AppStackScreenProps } from "../navigators"
@@ -84,12 +84,6 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
         <Text tx="loginScreen:hint" size="sm" weight="light" style={themed($hint)} />
       )}
 
-      
-<View className="w-10 h-10 bg-blue-500" />
-
-
-
-
       <TextField
         value={authEmail}
         onChangeText={setAuthEmail}
@@ -126,6 +120,7 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
         style={themed($tapButton)}
         preset="reversed"
         onPress={login}
+        className="bg-black p-3 rounded "
       />
     </Screen>
   )

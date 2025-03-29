@@ -5,19 +5,20 @@ import { initReactI18next } from "react-i18next"
 import "intl-pluralrules"
 
 // if English isn't your default language, move Translations to the appropriate language file.
-import en, { Translations } from "./en"
+import en from "./en"
 import ar from "./ar"
 import ko from "./ko"
 import es from "./es"
 import fr from "./fr"
 import ja from "./ja"
 import hi from "./hi"
+import pt, { Translations } from "./pt"
 
 const fallbackLocale = "en-US"
 
 const systemLocales = Localization.getLocales()
 
-const resources = { ar, en, ko, es, fr, ja, hi }
+const resources = { ar, en, ko, es, fr, ja, hi, pt }
 const supportedTags = Object.keys(resources)
 
 // Checks to see if the device locale matches any of the supported locales
@@ -32,6 +33,10 @@ const pickSupportedLocale: () => Localization.Locale | undefined = () => {
 }
 
 const locale = pickSupportedLocale()
+
+if (locale?.languageTag === "en-BR") {
+  locale.languageTag = "pt-BR"
+}
 
 export let isRTL = false
 
