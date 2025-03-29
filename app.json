@@ -40,8 +40,8 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-screen/splash-screen-vizinn.png",
-          "imageWidth": 1800,
-          "resizeMode": "contain",
+          "imageWidth": 900,
+          "resizeMode": "cover",
           "backgroundColor": "#1E2336"
         }
       ]

@@ -4,13 +4,12 @@
  * Generally speaking, it will contain an auth flow (registration, login, forgot password)
  * and a "main" flow which the user will use once logged in.
  */
-import { NavigationContainer, NavigatorScreenParams } from "@react-navigation/native"
+import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack"
 import { observer } from "mobx-react-lite"
 import * as Screens from "@/screens"
 import Config from "../config"
 import { useStores } from "../models"
-import { DemoNavigator, DemoTabParamList } from "./DemoNavigator"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 import { useAppTheme, useThemeProvider } from "@/utils/useAppTheme"
 import { ComponentProps } from "react"
@@ -30,10 +29,10 @@ import { ComponentProps } from "react"
  */
 export type AppStackParamList = {
   Welcome: undefined
-  Login: undefined
   Register: undefined
-  // 🔥 Your screens go here
-  // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
+  Login: undefined
+  Home: undefined
+  ForgotPassword: undefined
 }
 
 /**
@@ -64,21 +63,23 @@ const AppStack = observer(function AppStack() {
       screenOptions={{
         headerShown: false,
         navigationBarColor: colors.background,
+        contentStyle: {
+          backgroundColor: colors.background,
+        },
       }}
-      initialRouteName={isAuthenticated ? "Welcome" : "Register"}
+      initialRouteName={isAuthenticated ? "Home" : "Register"}
     >
       {isAuthenticated ? (
         <>
-          <Stack.Screen name="Welcome" component={Screens.WelcomeScreen} />
+          <Stack.Screen name="Home" component={Screens.HomeScreen} />
         </>
       ) : (
         <>
           <Stack.Screen name="Register" component={Screens.RegisterScreen} />
+          <Stack.Screen name="Login" component={Screens.LoginScreen} />
         </>
       )}
-
-      {/** 🔥 Your screens go here */}
-      {/* IGNITE_GENERATOR_ANCHOR_APP_STACK_SCREENS */}
+      <Stack.Screen name="ForgotPassword" component={Screens.ForgotPasswordScreen} />
     </Stack.Navigator>
   )
 })

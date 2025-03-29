@@ -2,22 +2,19 @@ import { Text, TextInput, TouchableOpacity } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Image, View } from "react-native"
 import { useForm, Controller } from "react-hook-form"
-import { useNavigation } from "@react-navigation/native"
 
 const logoDark = require("../../assets/images/logos/logo-dark.png")
 const pin = require("../../assets/images/pin.png")
 const icon = require("../../assets/images/new-icons/brillant-icon.png")
 
-export const RegisterScreen = observer(function WelcomeScreen(_props) {
+export const HomeScreen = observer(function HomeScreen(_props) {
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm()
 
-  const navigation = useNavigation()
-
-  const onSubmit = (data: any) => {
+  const onSubmit = (data) => {
     console.log(data)
   }
 
@@ -92,7 +89,7 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
           >
             <Text className="text-white">me tornar um vizinn</Text>
           </TouchableOpacity>
-          <TouchableOpacity className="" onPress={() => navigation.navigate("Login" as never)}>
+          <TouchableOpacity className="" onPress={() => console.log("login")}>
             <Text className="text-white block mx-auto">
               já tem uma conta? <Text className="font-bold">faça login</Text>
             </Text>
