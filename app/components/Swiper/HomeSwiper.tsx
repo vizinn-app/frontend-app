@@ -52,7 +52,6 @@ export function HomeSwiper({ className = "", ...props }: Props) {
       <FlatList
         data={slides}
         horizontal
-        pagingEnabled
         style={{ overflow: "visible" }}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
