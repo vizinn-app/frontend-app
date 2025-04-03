@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { useScrollToTop } from "@react-navigation/native"
 import { StatusBar, StatusBarProps, StatusBarStyle } from "expo-status-bar"
 import { ReactNode, useRef, useState } from "react"
@@ -94,7 +95,7 @@ function ScreenWithScrolling(props: ScreenProps) {
         onContentSizeChange(w, h)
         ScrollViewProps?.onContentSizeChange?.(w, h)
       }}
-      className={`py-20 px-8 flex-1 h-full w-full bg-white ${style}`}
+      className={`pt-20 pb-10 px-4 flex-1 bg-white overflow-visible ${style}`}
       contentContainerClassName={`justify-start items-stretch ${contentContainerStyle}`}
     >
       {children}

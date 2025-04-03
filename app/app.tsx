@@ -72,8 +72,6 @@ export function App() {
   const [areFontsLoaded, fontLoadError] = useFonts(customFontsToLoad)
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
 
-  console.log("Fonts loaded:", areFontsLoaded)
-
   useEffect(() => {
     initI18n()
       .then(() => setIsI18nInitialized(true))

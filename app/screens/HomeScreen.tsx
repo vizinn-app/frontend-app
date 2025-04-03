@@ -2,6 +2,8 @@ import { Screen, Text } from "@/components"
 import { observer } from "mobx-react-lite"
 import { Image, TextInput, View } from "react-native"
 import { useForm, Controller } from "react-hook-form"
+import { HomeMenu } from "@/components/Menu/HomeMenu"
+import { HomeSwiper } from "@/components/Swiper/HomeSwiper"
 
 const adam = require("../../assets/images/adam.jpeg")
 const settingsIcon = require("../../assets/icons/settings.png")
@@ -35,7 +37,7 @@ export const HomeScreen = observer(function HomeScreen(_props) {
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              className={`px-8 p-4 text-white/50  placeholder:text-[#888888] placeholder:text-[18px] h-[58px] w-[75%]`}
+              className={`px-8 p-4 text-[#888888]  placeholder:text-[#888888] placeholder:text-[18px] h-[58px] w-[75%]`}
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
@@ -50,6 +52,15 @@ export const HomeScreen = observer(function HomeScreen(_props) {
           <Image source={settingsIcon} className="h-[21px] w-[24px]" />
         </View>
       </View>
+
+      <View className="justify-between items-center flex-row my-10">
+        <Text className="text-[#2F2F2F] font-semibold text-2xl">anúncios populares</Text>
+        <Text className="text-[#888888] font-semibold">ver todos</Text>
+      </View>
+
+      <HomeMenu />
+
+      <HomeSwiper />
     </Screen>
   )
 })
