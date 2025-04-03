@@ -14,7 +14,7 @@ export const HomeScreen = observer(function HomeScreen(_props) {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log(data)
   }
 

@@ -4,9 +4,10 @@ import { Image, View } from "react-native"
 import { useForm, Controller } from "react-hook-form"
 import { useNavigation } from "@react-navigation/native"
 
-const logoDark = require("../../assets/images/logos/logo-dark.png")
+const logoWhite = require("../../assets/images/logos/logo-light.png")
 const pin = require("../../assets/images/pin.png")
 const icon = require("../../assets/images/new-icons/brillant-icon.png")
+const gradientBg = require("../../assets/images/bg-linear.png")
 
 export const RegisterScreen = observer(function WelcomeScreen(_props) {
   const {
@@ -22,17 +23,19 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
   }
 
   return (
-    <View className=" bg-white min-h-screen flex flex-col relative">
+    <View className="min-h-screen flex flex-col relative">
+      <Image source={gradientBg} className="h-screen w-screen contain absolute z-0" />
+
       <View className="py-20 px-10 relative">
-        <Text className="text-dark text-6xl my-20 max-w-[300px] relative z-10 block">
+        <Text className="text-white text-5xl my-20 max-w-[250px] relative z-10 mt-[180px]">
           tem uma xícara de açúcar aí?
         </Text>
-        <Image source={logoDark} className="w-[130px] h-[35px] cover mt-4 ms-4" />
+        <Image source={logoWhite} className="w-[130px] h-[35px] cover" />
         <Image source={pin} className="h-[450px] w-[453px] cover absolute ms-[125px] -mt-5 z-0" />
       </View>
-      <View className="w-[90%] h-[420px] bg-dark mt-auto mx-auto rounded-t-[70px] relative">
-        <View className="absolute left-1/2 -translate-x-1/2 rotate-6 py-3 px-7 bg-primary rounded-full -mt-10">
-          <Text className=" text-5xl text-white font-black">novo por aqui?</Text>
+      <View className="w-[95%] h-[390px] bg-dark mt-auto mx-auto rounded-t-[70px] relative shadow">
+        <View className="absolute left-1/2 -translate-x-1/2 rotate-6 py-3 px-7 bg-light  rounded-full -mt-10">
+          <Text className=" text-5xl text-dark font-black">novo por aqui?</Text>
           <Image source={icon} className="w-[44px] h-[44px] absolute right-0 bottom-[47px] -me-2" />
         </View>
         <View className="flex flex-col pt-[60px] px-4 text-white gap-y-2">
@@ -40,7 +43,7 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className="rounded-full border border-white/10 p-4 text-white/50  placeholder:text-white/50"
+                className={`${errors.name ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
@@ -50,53 +53,51 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
             name="name"
             rules={{ required: "Este campo é obrigatório" }}
           />
-          {errors.name && <Text>ao menos deixa um sobrenome aí!</Text>}
           <Controller
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className="rounded-full border border-white/10 p-4 text-white/50  placeholder:text-white/50"
+                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="agora, teu melhor email"
               />
             )}
-            name="name"
+            name="email"
             rules={{ required: "Este campo é obrigatório" }}
           />
-          {errors.name && <Text>ao menos deixa um sobrenome aí!</Text>}
           <Controller
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className="rounded-full border border-white/10 p-4 text-white/50  placeholder:text-white/50"
+                className={`${errors.password ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="a senha, não esquece hein?"
               />
             )}
-            name="name"
+            name="password"
             rules={{ required: "Este campo é obrigatório" }}
           />
-          {errors.name && <Text>ao menos deixa um sobrenome aí!</Text>}
-
-          <Text className="text-white max-w-[275px] block mx-auto mt-2">
-            você concorda com os <Text className="font-bold">Termos de Uso do Aplicativo</Text> ao
-            confirmar seu cadastro
-          </Text>
-          <TouchableOpacity
-            className="bg-primary rounded-full my-4 p-4 block mx-auto"
-            onPress={handleSubmit(onSubmit)}
-          >
-            <Text className="text-white">me tornar um vizinn</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="" onPress={() => navigation.navigate("Login" as never)}>
-            <Text className="text-white block mx-auto">
-              já tem uma conta? <Text className="font-bold">faça login</Text>
+          <View className="mt-9">
+            <Text className="text-white max-w-[275px] block mx-auto mt-2">
+              você concorda com os <Text className="font-bold">Termos de Uso do Aplicativo</Text> ao
+              confirmar seu cadastro
             </Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              className="bg-light rounded-full my-3 px-4 py-3 mx-auto flex justify-center items-center"
+              onPress={handleSubmit(onSubmit)}
+            >
+              <Text className="text-dark font-bold">me tornar um vizinn</Text>
+            </TouchableOpacity>
+            <TouchableOpacity className="" onPress={() => navigation.navigate("Login" as never)}>
+              <Text className="text-white block mx-auto">
+                já tem uma conta? <Text className="font-bold">faça login</Text>
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
