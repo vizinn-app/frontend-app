@@ -27,7 +27,10 @@
     "ios": {
       "icon": "./assets/images/new-icons/ios-icon.png",
       "supportsTablet": true,
-      "bundleIdentifier": "com.vizinn"
+      "bundleIdentifier": "com.vizinn",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "web": {
       "favicon": "./assets/images/new-icons/ios-icon.png",
@@ -47,7 +50,13 @@
       ]
     ],
     "experiments": {
-      "tsconfigPaths": true
+      "tsconfigPaths": true,
+      "newArchEnabled": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8507131e-df3e-43a5-ad91-f0185916cfcf"
+      }
     }
   },
   "ignite": {

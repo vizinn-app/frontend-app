@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native"
 
 const logoLight = require("../../assets/images/logos/logo-light.png")
 const pin = require("../../assets/images/login-pin.png")
-const icon = require("../../assets/images/new-icons/brillant-green.png")
+const icon = require("../../assets/images/new-icons/brillant-icon.png")
 const gradientBg = require("../../assets/images/bg-gradient.png")
 
 export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
@@ -23,7 +23,7 @@ export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
   }
 
   return (
-    <View className=" bg-linear-to-t from-[#253369] to-[#1E2336] min-h-screen flex flex-col relative">
+    <View className="min-h-screen flex flex-col relative">
       <Image source={gradientBg} className="h-screen w-screen contain absolute z-0" />
 
       <Image
@@ -34,9 +34,9 @@ export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
         source={pin}
         className="h-[661px] w-[550px] cover absolute  -translate-x-1/2 left-1/2 right-1/2"
       />
-      <View className="w-[90%] h-[350px] bg-dark mt-auto mx-auto rounded-t-[70px] relative">
-        <View className="absolute left-1/2 -translate-x-1/2 rotate-6 py-3 px-7 bg-primary rounded-full -mt-10">
-          <Text className=" text-4xl text-white font-black">esqueceu a senha?</Text>
+      <View className="w-[95%] h-[350px] bg-dark mt-auto mx-auto rounded-t-[70px] relative">
+        <View className="absolute left-1/2 -translate-x-1/2 rotate-6 py-3 px-7 bg-white rounded-full -mt-10 shadow">
+          <Text className=" text-4xl text-dark font-black">esqueceu a senha?</Text>
           <Image
             source={icon}
             className="w-[44px] h-[44px] absolute left-[35px] top-[42px] -me-2"
@@ -47,26 +47,25 @@ export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className="rounded-full border border-white/10 p-4 text-white/50  placeholder:text-white/50 mb-2"
+                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="email"
               />
             )}
-            name="name"
+            name="locais"
             rules={{ required: "Este campo é obrigatório" }}
           />
-          {errors.name && <Text>ao menos deixa um sobrenome aí!</Text>}
 
           <Text className="text-white max-w-[275px] block mx-auto mt-auto text-center">
             iremos enviar um email com um link para você resetar sua senha
           </Text>
           <TouchableOpacity
-            className="bg-primary rounded-full my-4 p-4 block mx-auto"
+            className="bg-light rounded-full my-4 p-4 block mx-auto"
             onPress={handleSubmit(onSubmit)}
           >
-            <Text className="text-white">redefinir senha</Text>
+            <Text className="text-dark">redefinir senha</Text>
           </TouchableOpacity>
 
           <View className="flex gap-2 mb-10">

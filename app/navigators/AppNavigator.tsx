@@ -80,6 +80,7 @@ const AppStack = observer(function AppStack() {
         </>
       )}
       <Stack.Screen name="ForgotPassword" component={Screens.ForgotPasswordScreen} />
+      <Stack.Screen name="Home" component={Screens.HomeScreen} />
     </Stack.Navigator>
   )
 })

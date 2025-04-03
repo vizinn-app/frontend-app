@@ -1,8 +1,9 @@
-import { Text, TextInput, TouchableOpacity } from "react-native"
+import { TextInput, TouchableOpacity } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Image, View } from "react-native"
 import { useForm, Controller } from "react-hook-form"
 import { useNavigation } from "@react-navigation/native"
+import { Text } from "@/components"
 
 const logoDark = require("../../assets/images/logos/logo-dark.png")
 const pin = require("../../assets/images/login-pin.png")
@@ -21,6 +22,7 @@ export const LoginScreen = observer(function LoginScreen(_props) {
 
   const onSubmit = (data: any) => {
     console.log(data)
+    navigation.navigate("Home" as never)
   }
 
   return (
@@ -55,7 +57,7 @@ export const LoginScreen = observer(function LoginScreen(_props) {
                 placeholder="email"
               />
             )}
-            name="email"
+            name="locais"
             rules={{ required: "Este campo é obrigatório" }}
           />
           <Controller
@@ -67,6 +69,7 @@ export const LoginScreen = observer(function LoginScreen(_props) {
                 onChangeText={onChange}
                 value={value}
                 placeholder="senha"
+                secureTextEntry
               />
             )}
             name="password"

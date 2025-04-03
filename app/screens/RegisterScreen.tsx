@@ -1,8 +1,9 @@
-import { Text, TextInput, TouchableOpacity } from "react-native"
+import { TextInput, TouchableOpacity } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Image, View } from "react-native"
 import { useForm, Controller } from "react-hook-form"
 import { useNavigation } from "@react-navigation/native"
+import { Text } from "@/components"
 
 const logoWhite = require("../../assets/images/logos/logo-light.png")
 const pin = require("../../assets/images/pin.png")
@@ -64,7 +65,7 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
                 placeholder="agora, teu melhor email"
               />
             )}
-            name="email"
+            name="locais"
             rules={{ required: "Este campo é obrigatório" }}
           />
           <Controller
@@ -76,6 +77,7 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
                 onChangeText={onChange}
                 value={value}
                 placeholder="a senha, não esquece hein?"
+                secureTextEntry
               />
             )}
             name="password"

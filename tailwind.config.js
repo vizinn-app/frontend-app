@@ -5,6 +5,19 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+      fontFamily: {
+        fontFamily: {
+          montserrat: ["MontserratRegular"],
+          montserratThin: ["MontserratThin"],
+          montserratExtraLight: ["MontserratExtraLight"],
+          montserratLight: ["MontserratLight"],
+          montserratMedium: ["MontserratMedium"],
+          montserratSemiBold: ["MontserratSemiBold"],
+          montserratBold: ["MontserratBold"],
+          montserratExtraBold: ["MontserratExtraBold"],
+          montserratBlack: ["MontserratBlack"],
+        },
+      },
       colors: {
         dark: "#1E2336",
         light: "#EAF1F4",
