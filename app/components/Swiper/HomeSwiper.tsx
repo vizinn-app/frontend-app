@@ -1,7 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import { useNavigation } from "@react-navigation/native"
+import { useState } from "react"
 import { Text } from "@/components/Text"
-import { MapPin, Star } from "lucide-react-native"
+import { Heart, MapPin, Star } from "lucide-react-native"
 import { Image, View, FlatList, TouchableOpacity } from "react-native"
 
 const slides = [
@@ -11,7 +12,7 @@ const slides = [
     title: "anúncio exemplo",
     location: "condo, mínio",
     rating: "4.8",
-    route: "Page1", // Nome da página para navegar futuramente
+    route: "Page1",
   },
   {
     id: "2",
@@ -23,7 +24,7 @@ const slides = [
   },
   {
     id: "3",
-    image: require("../../../assets/images/sample/sample-2.png"),
+    image: require("../../../assets/images/sample/sample-3.jpg"),
     title: "anúncio exemplo",
     location: "ufrn, natal",
     rating: "4.8",
@@ -37,21 +38,41 @@ interface Props extends React.ComponentProps<typeof View> {
 
 export function HomeSwiper({ className = "", ...props }: Props) {
   const navigation = useNavigation()
+  const [likedItems, setLikedItems] = useState<Record<string, boolean>>({})
+
+  const toggleLike = (id: string) => {
+    setLikedItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }))
+  }
 
   return (
-    <View className={`${className} my-10 w-full`} {...props}>
+    <View className={`${className} my-10`} {...props}>
       <FlatList
         data={slides}
         horizontal
+        pagingEnabled
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ width: "75%" }}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
-            className="w-[95%] h-[424px] relative"
+            className="w-[300px] h-[424px] relative me-3"
             onPress={() => navigation.navigate(item.route as never)}
           >
             <Image source={item.image} className="w-full h-full rounded-3xl shadow" />
+
+            <TouchableOpacity
+              className="rounded-full h-[32px] w-[32px] bg-[#1D1D1D]/30 absolute top-4 right-4 items-center justify-center z-10"
+              onPress={() => toggleLike(item.id)}
+            >
+              <Heart
+                size={16}
+                color={likedItems[item.id] ? "red" : "white"}
+                fill={likedItems[item.id] ? "red" : "transparent"}
+              />
+            </TouchableOpacity>
+
             <View className="absolute bottom-0 left-1/2 p-6 mb-4 bg-[#12304E]/90 rounded-3xl -translate-x-1/2 gap-4">
               <Text className="text-white">
                 {item.title}, <Text className="text-[#CAC8C8]">localização</Text>
