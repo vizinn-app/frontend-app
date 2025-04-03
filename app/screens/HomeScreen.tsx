@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { Screen, Text } from "@/components"
 import { observer } from "mobx-react-lite"
 import { Image, TextInput, View } from "react-native"

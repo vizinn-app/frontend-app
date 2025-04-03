@@ -48,17 +48,23 @@ export function HomeSwiper({ className = "", ...props }: Props) {
   }
 
   return (
-    <View className={`${className} my-10`} {...props}>
+    <View className={`${className}  py-5 my-5`} {...props}>
       <FlatList
         data={slides}
         horizontal
         pagingEnabled
+        style={{ overflow: "visible" }}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
             className="w-[300px] h-[424px] relative me-3"
             onPress={() => navigation.navigate(item.route as never)}
+            style={{
+              shadowOffset: { width: 0, height: 10 },
+              shadowOpacity: 0.4,
+              shadowRadius: 6,
+            }}
           >
             <Image source={item.image} className="w-full h-full rounded-3xl shadow" />
 

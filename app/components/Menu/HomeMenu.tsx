@@ -27,6 +27,7 @@ export function HomeMenu({ className = "", ...props }: Props) {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={menuItems}
+        style={{ overflow: "visible" }}
         keyExtractor={(item) => item.key}
         contentContainerStyle={{ gap: 12 }}
         renderItem={({ item }) => {
@@ -38,7 +39,9 @@ export function HomeMenu({ className = "", ...props }: Props) {
                 backgroundColor: isActive ? "#1E2336" : "transparent",
                 padding: 16,
                 borderRadius: 16,
-                shadowOpacity: isActive ? 0.2 : 0,
+                shadowOpacity: isActive ? 0.4 : 0,
+                shadowOffset: { width: 0, height: 3 },
+                shadowRadius: 4,
               }}
             >
               <Text
