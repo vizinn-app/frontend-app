@@ -4,9 +4,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-native/all",
-    // `expo` must come after `standard` or its globals configuration will be overridden
     "expo",
-    // `jsx-runtime` must come after `expo` or it will be overridden
     "plugin:react/jsx-runtime",
     "prettier",
   ],
@@ -32,7 +30,6 @@ module.exports = {
       "error",
       {
         paths: [
-          // Prefer named exports from 'react' instead of importing `React`
           {
             name: "react",
             importNames: ["default"],
@@ -52,5 +49,13 @@ module.exports = {
     "no-global-assign": 0,
     "quotes": 0,
     "space-before-function-paren": 0,
+  },
+  settings: {
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: "./tsconfig.json",
+      },
+    },
   },
 }

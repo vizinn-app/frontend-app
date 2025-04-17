@@ -50,11 +50,12 @@ export const LoginScreen = observer(function LoginScreen(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
+                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  `}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="email"
+                placeholderTextColor="#888888"
               />
             )}
             name="locais"
@@ -64,12 +65,13 @@ export const LoginScreen = observer(function LoginScreen(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className={`${errors.password ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
+                className={`${errors.password ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  `}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="senha"
                 secureTextEntry
+                placeholderTextColor="#888888"
               />
             )}
             name="password"

@@ -27,7 +27,7 @@ export function HomeMenu({ className = "", ...props }: Props) {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={menuItems}
-        style={{ overflow: "visible" }}
+        className="overflow-visible"
         keyExtractor={(item) => item.key}
         contentContainerStyle={{ gap: 12 }}
         renderItem={({ item }) => {

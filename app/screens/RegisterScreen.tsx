@@ -28,7 +28,7 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
       <Image source={gradientBg} className="h-screen w-screen contain absolute z-0" />
 
       <View className="py-20 px-10 relative">
-        <Text className="text-white text-5xl my-20 max-w-[250px] relative z-10 mt-[180px]">
+        <Text className="text-white text-[36px] my-20 max-w-[250px] relative z-10 mt-[180px] font-bold">
           tem uma xícara de açúcar aí?
         </Text>
         <Image source={logoWhite} className="w-[130px] h-[35px] cover" />
@@ -44,11 +44,12 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className={`${errors.name ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
+                className={`${errors.name ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  `}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="vizinn, como posso te chamar?"
+                placeholderTextColor="#888888"
               />
             )}
             name="name"
@@ -58,11 +59,12 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
+                placeholderTextColor="#888888"
+                placeholder="agora, teu melhor email"
+                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  `}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
-                placeholder="agora, teu melhor email"
               />
             )}
             name="locais"
@@ -72,19 +74,20 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className={`${errors.password ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
+                secureTextEntry
+                placeholderTextColor="#888888"
+                placeholder="a senha, não esquece hein?"
+                className={`${errors.password ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  `}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
-                placeholder="a senha, não esquece hein?"
-                secureTextEntry
               />
             )}
             name="password"
             rules={{ required: "Este campo é obrigatório" }}
           />
-          <View className="mt-9">
-            <Text className="text-white max-w-[275px] block mx-auto mt-2">
+          <View className="mt-2">
+            <Text className="text-white max-w-[275px] block mx-auto">
               você concorda com os <Text className="font-bold">Termos de Uso do Aplicativo</Text> ao
               confirmar seu cadastro
             </Text>

@@ -36,7 +36,7 @@ export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
       />
       <View className="w-[95%] h-[350px] bg-dark mt-auto mx-auto rounded-t-[70px] relative">
         <View className="absolute left-1/2 -translate-x-1/2 rotate-6 py-3 px-7 bg-white rounded-full -mt-10 shadow">
-          <Text className=" text-4xl text-dark font-black">esqueceu a senha?</Text>
+          <Text className=" text-4xl text-dark font-black">tá esquecido né?</Text>
           <Image
             source={icon}
             className="w-[44px] h-[44px] absolute left-[35px] top-[42px] -me-2"
@@ -47,11 +47,12 @@ export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  placeholder:text-white/50`}
+                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="email"
+                placeholderTextColor="#888888"
               />
             )}
             name="locais"

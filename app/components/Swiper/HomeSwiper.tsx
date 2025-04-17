@@ -52,7 +52,7 @@ export function HomeSwiper({ className = "", ...props }: Props) {
       <FlatList
         data={slides}
         horizontal
-        style={{ overflow: "visible" }}
+        className="overflow-visible"
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
